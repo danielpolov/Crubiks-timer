@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
 
 let defaultTimerValues = {
     started: false,
@@ -10,15 +9,28 @@ let defaultTimerValues = {
 
 const DisplayTimer = () =>{
     const [timerValues, setValues] = useState(defaultTimerValues);
+    const [startTime, setStartTime] = useState(null);
+    const [now, setNow] = useState(null);
+    const intervalRef = useRef(null);
 
     const toggleStopStartTimer = () =>{
-        timerValues.started ? setValues({...timerValues, started: false}) : 
-        setValues({...timerValues, started: true});
-        console.log(timerValues);
+        if(!timerValues.started){
+            setValues({...timerValues, started: true});
+            setStartTime(Date.now());
+            setNow(Date.now());
+
+            clearInterval(intervalRef.current);
+            intervalRef.current = setInterval(() => {
+              setNow(Date.now());
+            }, 10);
+        }else{
+            setValues({...timerValues, started: false});
+            clearInterval(intervalRef.current);
+        }
     }
     
     useEffect(() => {
-        const keyDownHandler = event => {
+        /*const keyDownHandler = event => {
             console.log('User pressed: ', event.key);
 
             if (event.keyCode === 32) {
@@ -26,19 +38,31 @@ const DisplayTimer = () =>{
 
                 toggleStopStartTimer();
             }
-        };
+        };*/
 
-        document.addEventListener('keydown', keyDownHandler);
+        const keyUpHandler = event => {
+            if(event.keyCode === 32){
+                event.preventDefault();
+
+                toggleStopStartTimer();
+            }
+        }
+
+        //document.addEventListener('keydown', keyDownHandler);
+        document.addEventListener('keyup', keyUpHandler);
 
         return () => {
-            document.removeEventListener('keydown', keyDownHandler);
+            document.removeEventListener('keyup', keyUpHandler);
         };
     }, [timerValues, toggleStopStartTimer]);
 
+    let secondsPassed = 0;
+    if (startTime != null && now != null) {
+        secondsPassed =  (now - startTime) / 1000;
+    }
+
     return <div className='display-timer'>
-        {timerValues.seconds},{timerValues.miliseconds}
-        <br />
-        <Button variant='dark' onClick={toggleStopStartTimer}>Dark</Button>{' '}
+        {secondsPassed.toFixed(3)}
     </div>
 }
 
