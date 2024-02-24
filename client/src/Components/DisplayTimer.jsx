@@ -62,7 +62,7 @@ const DisplayTimer = () =>{
     }
 
     return <div className='display-timer'>
-        {secondsPassed.toFixed(3)}
+        {secondsPassed.toFixed(2)}
     </div>
 }
 

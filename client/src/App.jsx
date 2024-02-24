@@ -1,10 +1,10 @@
 import './App.css'
-import DisplayTimer from './Components/DisplayTimer';
+import DisplayPage from './Pages/DisplayPage';
 
 function App() {
   return (
     <>  
-      <DisplayTimer />
+      <DisplayPage />
     </>
   )
 }
