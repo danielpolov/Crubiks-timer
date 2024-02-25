@@ -7,7 +7,7 @@ let defaultTimerValues = {
     miliseconds: 0
 }
 
-const DisplayTimer = () =>{
+const DisplayTimer = (props) =>{
     const [timerValues, setValues] = useState(defaultTimerValues);
     const [startTime, setStartTime] = useState(null);
     const [now, setNow] = useState(null);
@@ -26,6 +26,7 @@ const DisplayTimer = () =>{
         }else{
             setValues({...timerValues, started: false});
             clearInterval(intervalRef.current);
+            props.newScramble();
         }
     }
     
