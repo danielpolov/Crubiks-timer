@@ -1,6 +1,6 @@
 import React from "react";
 
-const DisplayScramble = () => {
+const DisplayScramble = (props) => {
 
     const possibleMoves = ["U", "D", "R", "L", "F", "B", "U'", "D'", "R'", "L'", "F'", "B'", "U2", "D2", "R2", "L2"];
 
@@ -9,7 +9,9 @@ const DisplayScramble = () => {
     let lastMove = possibleMoves[Math.floor(Math.random() * possibleMoves.length)] + " ";
     let currentMove = "";
 
-    for(let i = 0; i <= 22; i++){
+    let numberOfPosibleMoves = 21 - Math.floor(Math.random() * 4);
+
+    for(let i = 0; i <= numberOfPosibleMoves; i++){
         scramble += lastMove;
         currentMove = possibleMoves[Math.floor(Math.random() * possibleMoves.length)] + " ";
         while(lastMove.charAt(0) === currentMove.charAt(0)){
@@ -19,7 +21,7 @@ const DisplayScramble = () => {
     }
 
     return (
-        <div>
+        <div onClick={props.newScramble} className="scramble_container">
             {scramble}
         </div>
     );
