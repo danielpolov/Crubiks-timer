@@ -22,7 +22,7 @@ const DisplayScramble = (props) => {
 
     return (
         <div onClick={props.newScramble} className="scramble_container">
-            {scramble}
+            <h3 className="scramble_text">{scramble}</h3>
         </div>
     );
 

@@ -2,15 +2,13 @@
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
-.scramble_container{
+.scramble_text{
   cursor: pointer;
   font-size: 2em;
+  text-align: center;
 }
 
-.display-timer{
+.timer_text{
   font-size: 12em;
+  text-align: center;
 }

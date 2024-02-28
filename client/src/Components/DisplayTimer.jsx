@@ -62,9 +62,11 @@ const DisplayTimer = (props) =>{
         secondsPassed =  (now - startTime) / 1000;
     }
 
-    return <div className='display-timer'>
-        {secondsPassed.toFixed(2)}
-    </div>
+    return (
+        <div className='display-timer'>
+            <h1 className='timer_text'>{secondsPassed.toFixed(2)}</h1>
+        </div>
+    );
 }
 
 export default DisplayTimer;
