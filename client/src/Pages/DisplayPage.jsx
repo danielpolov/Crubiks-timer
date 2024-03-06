@@ -16,10 +16,14 @@ const DisplayPage = () => {
     return (
         <Container>
             <Row>
-                <DisplayScramble nextScramble={nextScramble} newScramble={newScramble} />
+                <Col>
+                    <DisplayScramble nextScramble={nextScramble} newScramble={newScramble} />
+                </Col>
             </Row>
             <Row>
-                <DisplayTimer newScramble={newScramble}/>
+                <Col>
+                    <DisplayTimer newScramble={newScramble}/>
+                </Col>
             </Row>
         </Container>
     );
