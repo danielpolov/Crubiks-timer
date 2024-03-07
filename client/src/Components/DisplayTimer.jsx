@@ -12,6 +12,7 @@ const DisplayTimer = (props) =>{
     const [startTime, setStartTime] = useState(null);
     const [now, setNow] = useState(null);
     const intervalRef = useRef(null);
+    const containerRef = useRef(null);
 
     const toggleStopStartTimer = () =>{
         if(!timerValues.started){
@@ -40,6 +41,7 @@ const DisplayTimer = (props) =>{
                 toggleStopStartTimer();
             }
         };*/
+        containerRef.current.focus();
 
         const keyUpHandler = event => {
             if(event.keyCode === 32){
@@ -55,15 +57,15 @@ const DisplayTimer = (props) =>{
         return () => {
             document.removeEventListener('keyup', keyUpHandler);
         };
-    }, [timerValues, toggleStopStartTimer]);
+    }, [timerValues, toggleStopStartTimer, containerRef]);
 
     let secondsPassed = 0;
     if (startTime != null && now != null) {
         secondsPassed =  (now - startTime) / 1000;
     }
-
+    
     return (
-        <div className='display-timer'>
+        <div className='display-timer' tabIndex={-1} ref={containerRef}>
             <h1 className='timer_text'>{secondsPassed.toFixed(2)}</h1>
         </div>
     );

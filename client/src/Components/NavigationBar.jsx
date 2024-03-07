@@ -17,7 +17,7 @@ const NavigationBar = () =>{
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
                         <Nav.Link as={Link} to="/learn">Learn</Nav.Link>
                         <NavDropdown title="Play" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Play Solo</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/playsolo">Play Solo</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
                                 Challenge a Friend
                             </NavDropdown.Item>
