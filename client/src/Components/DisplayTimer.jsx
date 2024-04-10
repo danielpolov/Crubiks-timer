@@ -41,7 +41,8 @@ const DisplayTimer = (props) =>{
                 toggleStopStartTimer();
             }
         };*/
-        containerRef.current.focus();
+        const navItem = document.getElementsByClassName("nav-link");
+        navItem[2].blur();
 
         const keyUpHandler = event => {
             if(event.keyCode === 32){

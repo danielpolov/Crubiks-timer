@@ -29,6 +29,9 @@ const NavigationBar = () =>{
                         </NavDropdown>
                     </Nav>
                     </Navbar.Collapse>
+                    <Navbar.Text>
+                        <Link to="/somewhere">Sign up</Link>
+                    </Navbar.Text>
                 </Container>
             </Navbar>
             <Outlet />
