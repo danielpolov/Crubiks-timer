@@ -21,17 +21,17 @@ const NavigationBar = () =>{
                             <NavDropdown.Item href="#action/3.2">
                                 Challenge a Friend
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.3">Tournament practice</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">
                                 Separated link
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
+                        <Navbar.Text>
+                            <Link to="/somewhere">Sign up</Link>
+                        </Navbar.Text>
                     </Navbar.Collapse>
-                    <Navbar.Text>
-                        <Link to="/somewhere">Sign up</Link>
-                    </Navbar.Text>
                 </Container>
             </Navbar>
             <Outlet />
