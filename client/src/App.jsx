@@ -9,11 +9,11 @@ import './styles/NavigationBar.css';
 
 function App() {
   return (
-    <Container>
+    <Container className='app_body'>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<NavigationBar />}>
-            <Route index path='/home' element={<HomePage />} />
+            <Route index element={<HomePage />} />
             <Route path='/learn' element={<LearnPage />} />
             <Route path='/playsolo' element={<DisplayPage />} />
           </Route>
